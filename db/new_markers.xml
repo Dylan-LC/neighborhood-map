@@ -1,0 +1,60 @@
+<!-- Distance Matrix Service: MAX_DIMENSIONS_EXCEEDED — Your request contained more than 25 origins, or more than 25 destinations. -->
+
+<markers>
+  <marker id="1" name="Vagabond Inn - Los Angeles at USC" address="3101 S Figueroa St, Los Angeles, CA 90007" lat="34.024082" lng="-118.278847" type="hotel" title="Order#01" />
+  <!-- <marker id="2" name="Ramada Los Angeles/Downtown West" address="1901 W Olympic Blvd, Los Angeles, CA 90006" lat="34.050976" lng="-118.277702" type="hotel" title="Order#02" /> -->
+  <!-- <marker id="3" name="Rodeway Inn Convention Center" address="1904 W Olympic Blvd, Los Angeles, CA 90006" lat="34.050625" lng="-118.278114" type="hotel" title="Order#03" /> -->
+  <marker id="4" name="Park Motel" address="4151 S Figueroa St, Los Angeles, CA 90037" lat="34.053902" lng="-118.201736" type="hotel" title="Order#04" />
+  <!-- <marker id="5" name="Aventura hotel" address="1020 Fedora St, Los Angeles, CA 90006" lat="34.052044" lng="-118.297562" type="hotel" title="Order#05" /> -->
+  <marker id="6" name="Central Inn Motel" address="4074 S Central Ave, Los Angeles, CA 90011" lat="34.009399" lng="-118.256317" type="hotel" title="Order#06" />
+  <marker id="7" name="The Mayfair hotel" address="1256 W 7th St, Los Angeles, CA 90017" lat="34.052151" lng="-118.268044" type="hotel" title="Order#07" />
+  <marker id="8" name="Golden West Manor Motel" address="3700 S Western Ave, Los Angeles, CA 90018" lat="34.020794" lng="-118.308769" type="hotel" title="Order#08" />
+  <!-- <marker id="9" name="Best Western Plus LA Mid-Town hotel" address="603 S New Hampshire Ave, Los Angeles, CA 90005" lat="34.063385" lng="-118.293243" type="hotel" title="Order#09" /> -->
+  <marker id="10" name="Kawada hotel" address="200 S Hill St, Los Angeles, CA 90012" lat="34.052715" lng="-118.247704" type="hotel" title="Order#10" />
+  <marker id="11" name="Shelter Hotels" address="457 S Mariposa Ave, Los Angeles, CA 90020" lat="34.065556" lng="-118.299377" type="hotel" title="Order#11" />
+  <marker id="12" name="Broadway Motel" address="301 W 49th St, Los Angeles, CA 90037" lat="33.998672" lng="-118.278625" type="hotel" title="Order#12" />
+  <marker id="13" name="Dunes Inn Wilshire" address="4300 Wilshire Blvd, Los Angeles, CA 90010" lat="34.061600" lng="-118.321831" type="hotel" title="Order#13" />
+  <!-- <marker id="14" name="Stillwell hotel" address="838 S Grand Ave, Los Angeles, CA 90017" lat="34.044697" lng="-118.258499" type="hotel" title="Order#14" /> -->
+  <marker id="15" name="Natural History Museum of Los Angeles County" address="900 W Exposition Blvd, Los Angeles, CA 90007" lat="34.016956" lng="-118.288773" type="museum" title="Order#15" />
+  <!-- <marker id="16" name="USC Fisher Museum of Art" address="823 W Exposition Blvd, Los Angeles, CA 90089" lat="34.018818" lng="-118.287315" type="museum" title="Order#16" /> -->
+  <!-- <marker id="17" name="California African American museum" address="600 State Dr, Los Angeles, CA 90037" lat="34.015892" lng="-118.283447" type="museum" title="Order#17" /> -->
+  <!-- <marker id="18" name="California Science Center" address="700 Exposition Park Dr, Los Angeles, CA 90037" lat="34.015865" lng="-118.286110" type="museum" title="Order#18" /> -->
+  <!-- <marker id="19" name="Space Shuttle Endeavour" address="700 Exposition Park Dr, Los Angeles, CA 90037" lat="34.016251" lng="-118.287369" type="museum" title="Order#19" /> -->
+  <marker id="20" name="Exposition Park Rose Garden" address="701 State Dr, Los Angeles, CA 90037" lat="34.017387" lng="-118.285919" type="park" title="Order#20" />
+  <!-- <marker id="21" name="McCarthy Quad" address="3551 Trousdale Pkwy, Los Angeles, CA 90089" lat="34.017387" lng="-118.285919" type="park" title="Order#21" /> -->
+  <!-- <marker id="22" name="Grand Hope park" address="919 S Grand Ave, Los Angeles, CA 90015" lat="34.044495" lng="-118.260490" type="park" title="Order#22" /> -->
+  <!-- <marker id="23" name="Los Angeles State Historic park" address="1245 N Spring St, Los Angeles, CA 90012" lat="34.053017" lng="-118.212807" type="park" title="Order#23" /> -->
+  <marker id="24" name="Gladys park" address="808 E 6th St, Los Angeles, CA 90021" lat="34.040279" lng="-118.242462" type="park" title="Order#24" />
+  <marker id="25" name="Lincoln park" address="3501 Valley Blvd, Los Angeles, CA 90031" lat="34.065945" lng="-118.201538" type="park" title="Order#25" />
+  <marker id="26" name="Jim Gilliam park" address="4000 South La Brea Ave, Los Angeles, CA 90008" lat="34.013035" lng="-118.354599" type="park" title="Order#26" />
+  <marker id="27" name="VERMONT SQUARE park" address="1248 W 47th St, Los Angeles, CA 90037" lat="34.000355" lng="-118.297363" type="park" title="Order#27" />
+  <!-- <marker id="28" name="Chinatown Express" address="2811 S Figueroa St, Los Angeles, CA 90007" lat="34.025997" lng="-118.278137" type="restaurant" title="Order#28" /> -->
+  <marker id="29" name="Panda Chinese restaurant" address="4032 S Western Ave, Los Angeles, CA 90062" lat="34.009998" lng="-118.308487" type="restaurant" title="Order#29" />
+  <!-- <marker id="30" name="Hong Kong Express" address="2604 S Vermont Ave C, Los Angeles, CA 90007" lat="34.031506" lng="-118.290810" type="restaurant" title="Order#30" /> -->
+  <!-- <marker id="31" name="Kay Kay Chinese Food" address="1722 S Western Ave, Los Angeles, CA 90006" lat="34.042152" lng="-118.308334" type="restaurant" title="Order#31" /> -->
+  <marker id="32" name="Young King Chinese restaurant" address="3100 W Olympic Blvd, Los Angeles, CA 90006" lat="34.052406" lng="-118.303322" type="restaurant" title="Order#32" />
+  <!-- <marker id="33" name="China Gate" address="989 Dewey Ave, Los Angeles, CA 90006" lat="34.053120" lng="-118.296112" type="restaurant" title="Order#33" /> -->
+  <!-- <marker id="34" name="Dragon Chinese restaurant" address="966 S Vermont Ave, Los Angeles, CA 90006" lat="34.053493" lng="-118.291306" type="restaurant" title="Order#34" /> -->
+  <!-- <marker id="35" name="Howard's Cafe" address="1051 S Alvarado St, Los Angeles, CA 90006" lat="34.050846" lng="-118.281044" type="restaurant" title="Order#35" /> -->
+  <marker id="36" name="Gold Medal Chinese Food" address="1600 W 6th St, Los Angeles, CA 90017" lat="34.056850" type="restaurant" title="Order#36" />
+  <!-- <marker id="37" name="Peking Tavern" address="806 S Spring St, Los Angeles, CA 90014" lat="34.042763" lng="-118.253654" type="restaurant" title="Order#37" /> -->
+  <!-- <marker id="38" name="New Moon restaurant" address="102 W 9th St, Los Angeles, CA 90015" lat="34.042377" lng="-118.256340" type="restaurant" title="Order#38" /> -->
+  <!-- <marker id="39" name="Yang Chow restaurant" address="819 N Broadway, Los Angeles, CA 90012" lat="34.062988" lng="-118.238281" type="restaurant" title="Order#39" /> -->
+  <!-- <marker id="40" name="Bamboo Express" address="1548 W Pico Blvd, Los Angeles, CA 90015" lat="34.043804" lng="-118.276283" type="restaurant" title="Order#40" /> -->
+  <marker id="41" name="Caveman Kitchen" address="2215 S Vermont Ave #101, Los Angeles, CA 90007" lat="34.035912" lng="-118.291939" type="restaurant" title="Order#41" />
+  <marker id="42" name="Kowloon Dimsum" address="223 S Vermont Ave, Los Angeles, CA 90004" lat="34.069828" lng="-118.291756" type="restaurant" title="Order#42" />
+  <marker id="43" name="Chinese Friends restaurant" address="984 N Broadway, Los Angeles, CA 90012" lat="34.066261" lng="-118.235855" type="restaurant" title="Order#43" />
+  <!-- <marker id="44" name="Phoenix Inn Chinese Cuisine - LA Chinatown" address="301 Ord St, Los Angeles, CA 90012" lat="34.060287" lng="-118.238701" type="restaurant" title="Order#44" /> -->
+  <!-- <marker id="45" name="Chichen Itza restaurant" address="3655 S Grand Ave C6, Los Angeles, CA 90007" lat="34.017357" lng="-118.278404" type="restaurant" title="Order#45" /> -->
+  <marker id="46" name="Paul's Kitchen" address="1012 S San Pedro St, Los Angeles, CA 90015" lat="34.035492" lng="-118.251862" type="restaurant" title="Order#46" />
+  <!-- <marker id="47" name="ABC Seafood restaurant" address="205 Ord St, Los Angeles, CA 90012" lat="34.035492" lng="-118.251862" type="restaurant" title="Order#47" /> -->
+  <marker id="48" name="Museum of Ice Cream" address="2018 E 7th Pl, Los Angeles, CA 90021" lat="34.034290" lng="-118.231644" type="museum" title="Order#48" />
+  <!-- <marker id="49" name="Chinese American museum" address="425 N Los Angeles St, Los Angeles, CA 90012" lat="34.055840" lng="-118.239090" type="museum" title="Order#49" /> -->
+  <!-- <marker id="50" name="The Geffen Contemporary at MOCA" address="152 N Central Ave, Los Angeles, CA 90012" lat="34.050419" lng="-118.238556" type="museum" title="Order#50" /> -->
+  <marker id="51" name="Sports Museum of Los Angeles" address="1900 S Main St, Los Angeles, CA 90007" lat="34.029945" lng="-118.264854" type="museum" title="Order#51" />
+  <marker id="52" name="Art of The Americas Building" address="5935 Wilshire Blvd, Los Angeles, CA 90036" lat="34.062683" lng="-118.358322" type="museum" title="Order#52" />
+  <!-- <marker id="53" name="Heritage Square museum" address="3800 Homer St, Los Angeles, CA 90031" lat="34.088234" lng="-118.207954" type="museum" title="Order#53" /> -->
+  <!-- <marker id="54" name="Museum of African American Art" address="4005 Crenshaw Blvd, Los Angeles, CA 90008" lat="34.011738" lng="-118.335800" type="museum" title="Order#54" /> -->
+  <!-- <marker id="55" name="The Main Museum of Los Angeles" address="114 W 4th St, Los Angeles, CA 90013" lat="34.048203" lng="-118.247818" type="museum" title="Order#55" /> -->
+  <!-- <marker id="56" name="Fairmont San Francisco" address="950 Mason St, San Francisco, CA 94108" lat="37.792496" lng="-122.410035" type="hotel" title="Order#56"> -->
+</markers>

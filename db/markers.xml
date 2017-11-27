@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+-
+- Sequel Pro XML dump
+- Version 4541
+-
+- http://www.sequelpro.com/
+- https://github.com/sequelpro/sequelpro
+-
+- Host: 127.0.0.1 (MySQL 5.7.19)
+- Database: neighborhood-map
+- Generation Time Time: 2017-11-14 08:16:46 +0000
+-
+-->
+
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="neighborhood-map">
+
+	<table_structure name="markers">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(60)" null="YES" key="" default="" extra="" />
+		<field field="address" type="varchar(80)" null="YES" key="" default="" extra="" />
+		<field field="lat" type="float(10,6)" null="YES" key="" default="<null>" extra="" />
+		<field field="lng" type="float(10,6)" null="YES" key="" default="<null>" extra="" />
+		<field field="type" type="varchar(30)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="markers" engine="InnoDB" version="10" row_format="Dynamic" rows="52" avg_row_length="315" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2017-11-14 02:16:31" update_time="2017-11-14 01:31:07" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_data name="markers">
+
+	<row>
+		<field name="id">1</field>
+		<field name="name">Vagabond Inn - Los Angeles at USC</field>
+		<field name="address">3101 S Figueroa St, Los Angeles, CA 90007</field>
+		<field name="lat">34.024082</field>
+		<field name="lng">-118.278847</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">2</field>
+		<field name="name">Ramada Los Angeles/Downtown West</field>
+		<field name="address">1901 W Olympic Blvd, Los Angeles, CA 90006</field>
+		<field name="lat">34.050976</field>
+		<field name="lng">-118.277702</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">3</field>
+		<field name="name">Rodeway Inn Convention Center</field>
+		<field name="address">1904 W Olympic Blvd, Los Angeles, CA 90006</field>
+		<field name="lat">34.050625</field>
+		<field name="lng">-118.278114</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">4</field>
+		<field name="name">Park Motel</field>
+		<field name="address">4151 S Figueroa St, Los Angeles, CA 90037</field>
+		<field name="lat">34.053902</field>
+		<field name="lng">-118.201736</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">5</field>
+		<field name="name">Aventura Hotel</field>
+		<field name="address">1020 Fedora St, Los Angeles, CA 90006</field>
+		<field name="lat">34.052044</field>
+		<field name="lng">-118.297562</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">6</field>
+		<field name="name">Central Inn Motel</field>
+		<field name="address">4074 S Central Ave, Los Angeles, CA 90011</field>
+		<field name="lat">34.009399</field>
+		<field name="lng">-118.256317</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">7</field>
+		<field name="name">The Mayfair Hotel</field>
+		<field name="address">1256 W 7th St, Los Angeles, CA 90017</field>
+		<field name="lat">34.052151</field>
+		<field name="lng">-118.268044</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">8</field>
+		<field name="name">Golden West Manor Motel</field>
+		<field name="address">3700 S Western Ave, Los Angeles, CA 90018</field>
+		<field name="lat">34.020794</field>
+		<field name="lng">-118.308769</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">9</field>
+		<field name="name">Best Western Plus LA Mid-Town Hotel</field>
+		<field name="address">603 S New Hampshire Ave, Los Angeles, CA 90005</field>
+		<field name="lat">34.063385</field>
+		<field name="lng">-118.293243</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">10</field>
+		<field name="name">Kawada Hotel</field>
+		<field name="address">200 S Hill St, Los Angeles, CA 90012</field>
+		<field name="lat">34.052715</field>
+		<field name="lng">-118.247704</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">11</field>
+		<field name="name">Shelter Hotels</field>
+		<field name="address">457 S Mariposa Ave, Los Angeles, CA 90020</field>
+		<field name="lat">34.065556</field>
+		<field name="lng">-118.299377</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">12</field>
+		<field name="name">Broadway Motel</field>
+		<field name="address">301 W 49th St, Los Angeles, CA 90037</field>
+		<field name="lat">33.998672</field>
+		<field name="lng">-118.278625</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">13</field>
+		<field name="name">Dunes Inn Wilshire</field>
+		<field name="address">4300 Wilshire Blvd, Los Angeles, CA 90010</field>
+		<field name="lat">34.061600</field>
+		<field name="lng">-118.321831</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">14</field>
+		<field name="name">Stillwell Hotel</field>
+		<field name="address">838 S Grand Ave, Los Angeles, CA 90017</field>
+		<field name="lat">34.044697</field>
+		<field name="lng">-118.258499</field>
+		<field name="type">hotel</field>
+	</row>
+
+	<row>
+		<field name="id">15</field>
+		<field name="name">Natural History Museum of Los Angeles County
+</field>
+		<field name="address">900 W Exposition Blvd, Los Angeles, CA 90007</field>
+		<field name="lat">34.016956</field>
+		<field name="lng">-118.288773</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">16</field>
+		<field name="name">USC Fisher Museum of Art</field>
+		<field name="address">823 W Exposition Blvd, Los Angeles, CA 90089</field>
+		<field name="lat">34.018818</field>
+		<field name="lng">-118.287315</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">17</field>
+		<field name="name">California African American Museum</field>
+		<field name="address">600 State Dr, Los Angeles, CA 90037</field>
+		<field name="lat">34.015892</field>
+		<field name="lng">-118.283447</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">18</field>
+		<field name="name">California Science Center</field>
+		<field name="address">700 Exposition Park Dr, Los Angeles, CA 90037</field>
+		<field name="lat">34.015865</field>
+		<field name="lng">-118.286110</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">19</field>
+		<field name="name">Space Shuttle Endeavour</field>
+		<field name="address">700 Exposition Park Dr, Los Angeles, CA 90037</field>
+		<field name="lat">34.016251</field>
+		<field name="lng">-118.287369</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">20</field>
+		<field name="name">Exposition Park Rose Garden</field>
+		<field name="address">701 State Dr, Los Angeles, CA 90037</field>
+		<field name="lat">34.017387</field>
+		<field name="lng">-118.285919</field>
+		<field name="type">park</field>
+	</row>
+
+	<row>
+		<field name="id">21</field>
+		<field name="name">McCarthy Quad</field>
+		<field name="address">3551 Trousdale Pkwy, Los Angeles, CA 90089</field>
+		<field name="lat">34.017387</field>
+		<field name="lng">-118.285919</field>
+		<field name="type">park</field>
+	</row>
+
+	<row>
+		<field name="id">22</field>
+		<field name="name">Grand Hope Park</field>
+		<field name="address">919 S Grand Ave, Los Angeles, CA 90015</field>
+		<field name="lat">34.044495</field>
+		<field name="lng">-118.260490</field>
+		<field name="type">park</field>
+	</row>
+
+	<row>
+		<field name="id">23</field>
+		<field name="name">Los Angeles State Historic Park</field>
+		<field name="address">1245 N Spring St, Los Angeles, CA 90012</field>
+		<field name="lat">34.053017</field>
+		<field name="lng">-118.212807</field>
+		<field name="type">park</field>
+	</row>
+
+	<row>
+		<field name="id">24</field>
+		<field name="name">Gladys Park</field>
+		<field name="address">808 E 6th St, Los Angeles, CA 90021</field>
+		<field name="lat">34.040279</field>
+		<field name="lng">-118.242462</field>
+		<field name="type">park</field>
+	</row>
+
+	<row>
+		<field name="id">25</field>
+		<field name="name">Lincoln Park</field>
+		<field name="address">3501 Valley Blvd, Los Angeles, CA 90031</field>
+		<field name="lat">34.065945</field>
+		<field name="lng">-118.201538</field>
+		<field name="type">park</field>
+	</row>
+
+	<row>
+		<field name="id">26</field>
+		<field name="name">Jim Gilliam Park</field>
+		<field name="address">4000 South La Brea Ave, Los Angeles, CA 90008</field>
+		<field name="lat">34.013035</field>
+		<field name="lng">-118.354599</field>
+		<field name="type">park</field>
+	</row>
+
+	<row>
+		<field name="id">27</field>
+		<field name="name">VERMONT SQUARE PARK</field>
+		<field name="address">1248 W 47th St, Los Angeles, CA 90037</field>
+		<field name="lat">34.000355</field>
+		<field name="lng">-118.297363</field>
+		<field name="type">park</field>
+	</row>
+
+	<row>
+		<field name="id">28</field>
+		<field name="name">Chinatown Express</field>
+		<field name="address">2811 S Figueroa St, Los Angeles, CA 90007</field>
+		<field name="lat">34.025997</field>
+		<field name="lng">-118.278137</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">29</field>
+		<field name="name">Panda Chinese Restaurant</field>
+		<field name="address">4032 S Western Ave, Los Angeles, CA 90062</field>
+		<field name="lat">34.009998</field>
+		<field name="lng">-118.308487</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">30</field>
+		<field name="name">Hong Kong Express</field>
+		<field name="address">2604 S Vermont Ave C, Los Angeles, CA 90007</field>
+		<field name="lat">34.031506</field>
+		<field name="lng">-118.290810</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">31</field>
+		<field name="name">Kay Kay Chinese Food</field>
+		<field name="address">1722 S Western Ave, Los Angeles, CA 90006</field>
+		<field name="lat">34.042152</field>
+		<field name="lng">-118.308334</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">32</field>
+		<field name="name">Young King Chinese Restaurant</field>
+		<field name="address">3100 W Olympic Blvd, Los Angeles, CA 90006</field>
+		<field name="lat">34.052406</field>
+		<field name="lng">-118.303322</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">33</field>
+		<field name="name">China Gate</field>
+		<field name="address">989 Dewey Ave, Los Angeles, CA 90006</field>
+		<field name="lat">34.053120</field>
+		<field name="lng">-118.296112</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">34</field>
+		<field name="name">Dragon Chinese Restaurant</field>
+		<field name="address">966 S Vermont Ave, Los Angeles, CA 90006</field>
+		<field name="lat">34.053493</field>
+		<field name="lng">-118.291306</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">35</field>
+		<field name="name">Howard's Cafe</field>
+		<field name="address">1051 S Alvarado St, Los Angeles, CA 90006</field>
+		<field name="lat">34.050846</field>
+		<field name="lng">-118.281044</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">36</field>
+		<field name="name">Gold Medal Chinese Food</field>
+		<field name="address">1600 W 6th St, Los Angeles, CA 90017</field>
+		<field name="lat">34.056850</field>
+		<field name="lng">-118.269424</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">37</field>
+		<field name="name">Peking Tavern</field>
+		<field name="address">806 S Spring St, Los Angeles, CA 90014</field>
+		<field name="lat">34.042763</field>
+		<field name="lng">-118.253654</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">38</field>
+		<field name="name">New Moon Restaurant</field>
+		<field name="address">102 W 9th St, Los Angeles, CA 90015</field>
+		<field name="lat">34.042377</field>
+		<field name="lng">-118.256340</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">39</field>
+		<field name="name">Yang Chow Restaurant</field>
+		<field name="address">819 N Broadway, Los Angeles, CA 90012</field>
+		<field name="lat">34.062988</field>
+		<field name="lng">-118.238281</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">40</field>
+		<field name="name">Bamboo Express</field>
+		<field name="address">1548 W Pico Blvd, Los Angeles, CA 90015</field>
+		<field name="lat">34.043804</field>
+		<field name="lng">-118.276283</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">41</field>
+		<field name="name">Caveman Kitchen</field>
+		<field name="address">2215 S Vermont Ave #101, Los Angeles, CA 90007</field>
+		<field name="lat">34.035912</field>
+		<field name="lng">-118.291939</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">42</field>
+		<field name="name">Kowloon Dimsum</field>
+		<field name="address">223 S Vermont Ave, Los Angeles, CA 90004</field>
+		<field name="lat">34.069828</field>
+		<field name="lng">-118.291756</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">43</field>
+		<field name="name">Chinese Friends Restaurant</field>
+		<field name="address">984 N Broadway, Los Angeles, CA 90012</field>
+		<field name="lat">34.066261</field>
+		<field name="lng">-118.235855</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">44</field>
+		<field name="name">Phoenix Inn Chinese Cuisine - LA Chinatown</field>
+		<field name="address">301 Ord St, Los Angeles, CA 90012</field>
+		<field name="lat">34.060287</field>
+		<field name="lng">-118.238701</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">45</field>
+		<field name="name">Chichen Itza Restaurant</field>
+		<field name="address">3655 S Grand Ave C6, Los Angeles, CA 90007</field>
+		<field name="lat">34.017357</field>
+		<field name="lng">-118.278404</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">46</field>
+		<field name="name">Paul's Kitchen</field>
+		<field name="address">1012 S San Pedro St, Los Angeles, CA 90015</field>
+		<field name="lat">34.035492</field>
+		<field name="lng">-118.251862</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">47</field>
+		<field name="name">ABC Seafood Restaurant</field>
+		<field name="address">205 Ord St, Los Angeles, CA 90012</field>
+		<field name="lat">34.035492</field>
+		<field name="lng">-118.251862</field>
+		<field name="type">restaurant</field>
+	</row>
+
+	<row>
+		<field name="id">48</field>
+		<field name="name">Museum of Ice Cream</field>
+		<field name="address">2018 E 7th Pl, Los Angeles, CA 90021</field>
+		<field name="lat">34.034290</field>
+		<field name="lng">-118.231644</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">49</field>
+		<field name="name">Chinese American Museum</field>
+		<field name="address">425 N Los Angeles St, Los Angeles, CA 90012</field>
+		<field name="lat">34.055840</field>
+		<field name="lng">-118.239090</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">50</field>
+		<field name="name">The Geffen Contemporary at MOCA
+</field>
+		<field name="address">152 N Central Ave, Los Angeles, CA 90012</field>
+		<field name="lat">34.050419</field>
+		<field name="lng">-118.238556</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">51</field>
+		<field name="name">Sports Museum of Los Angeles</field>
+		<field name="address">1900 S Main St, Los Angeles, CA 90007</field>
+		<field name="lat">34.029945</field>
+		<field name="lng">-118.264854</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">52</field>
+		<field name="name">Art of The Americas Building</field>
+		<field name="address">5935 Wilshire Blvd, Los Angeles, CA 90036</field>
+		<field name="lat">34.062683</field>
+		<field name="lng">-118.358322</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">53</field>
+		<field name="name">Heritage Square Museum</field>
+		<field name="address">3800 Homer St, Los Angeles, CA 90031</field>
+		<field name="lat">34.088234</field>
+		<field name="lng">-118.207954</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">54</field>
+		<field name="name">Museum of African American Art</field>
+		<field name="address">4005 Crenshaw Blvd, Los Angeles, CA 90008</field>
+		<field name="lat">34.011738</field>
+		<field name="lng">-118.335800</field>
+		<field name="type">museum</field>
+	</row>
+
+	<row>
+		<field name="id">55</field>
+		<field name="name">The Main Museum of Los Angeles</field>
+		<field name="address">114 W 4th St, Los Angeles, CA 90013</field>
+		<field name="lat">34.048203</field>
+		<field name="lng">-118.247818</field>
+		<field name="type">museum</field>
+	</row>
+
+	</table_data>
+
+</database>
+</mysqldump>

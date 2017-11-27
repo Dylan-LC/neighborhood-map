@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Neighborhood Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style5.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="options-box">
+        <row>
+          <input id="show-drawing-control" type="button" value="Show Drawing Control">
+          <input id="hide-drawing-control" type="button" value="Hide Drawing Control">          
+        </row>
+      </div>
+      <div id="map"></div>
+      <script src="js/map5.js"></script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr5FlyIOASDyzm_lvWOE26hQfLxPFpt4E&libraries=drawing&callback=initMap">
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Neighborhood Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- /*<style>
+      #map {
+        height: 100%;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>*/ -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="options-box">
+        <h1>Find your fun near USC this winter<h1>
+          <row>
+            <input id="show-hotel-listings" type="button" value="Show Hotel Listings">
+            <input id="hide-hotel-listings" type="button" value="Hide Hotel Listings">
+          </row>
+          <row>
+            <input id="show-restaurant-listings" type="button" value="Show Restaurant Listings">
+            <input id="hide-restaurant-listings" type="button" value="Hide Restaurant Listings">
+          </row>
+          <row>
+            <input id="show-park-listings" type="button" value="Show Park Listings">
+            <input id="hide-park-listings" type="button" value="Hide Park Listings">
+          </row>
+          <row>
+            <input id="show-museum-listings" type="button" value="Show Museum Listings">
+            <input id="hide-museum-listings" type="button" value="Hide Museum Listings">
+          </row>
+      </div>
+    <!-- <h3>My destination this winter</h3> -->
+    <div id="map"></div>
+    <!-- <div id="pano"></div> -->
+    <script>
+      var map, xmlUrl;
+      var clickedMarker = null;
+      var panorama = null;
+
+      var markersArray = [];
+      var markersHotel = [];
+      var markersRestaurant = [];
+      var markersPark = [];
+      var markersMuseum = [];
+
+      var customLabel = {
+        restaurant: {
+          label: 'R'
+        },
+        museum: {
+          label: 'M'
+        },
+        park: {
+          label: 'P'
+        },
+        hotel: {
+          label: 'H'
+        }
+      };
+      // var marker[];
+      var usc = {lat: 34.02198651329619 ,lng: -118.2878851890564};
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: usc,
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          streetViewControl: false
+        });
+
+        var infoWindow = new google.maps.InfoWindow();
+        var sv = new google.maps.StreetViewService();
+
+        // Create the infoWindow with div placeholder for the StreetView panorama.
+        var streetview = document.createElement('div');
+        streetview.style.width = "200px";
+        streetview.style.height = "200px";
+
+
+        // var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + address + ' &key=AIzaSyDkvwrURbC_V_zjkq5YpcXqqNlymFOk5FQ';
+        // Style the markers a bit. This will be our listing marker icon.
+        // var defaultIcon = makeMarkerIcon('0091ff');
+
+        // Create a "highlighted location" marker color for when the user
+        // mouses over the marker.
+        // var highlightedIcon = makeMarkerIcon('FFFF24');
+
+        xmlUrl = 'db/new_markers.xml';
+
+        // var contentString = '<div id="content">'+
+        // '<div id="siteNotice">'+
+        // '</div>'+
+        // '<h1 id="firstHeading" class="firstHeading">USC</h1>'+
+        // '<img src="image/southern_california_university_logo.jpg" alt="USC logo">'+
+        // '<div id="bodyContent">'+
+        // '<p>The <b>University of Southern California (USC or SC)</b> is a '+
+        // 'private research university located in Los Angeles, California. '+
+        // 'Founded in 1880, it is the oldest private research university in '+
+        // 'California. USC has historically educated a large number of the '+
+        // 'region&#39s business leaders and professionals. In recent decades, the '+
+        // 'university has also leveraged its location in Los Angeles to establish '+
+        // 'relationships with research and cultural  institutions throughout Asia '+
+        // 'and the Pacific Rim. An engine for economic activity, USC contributes '+
+        // '$8 billion annually to the economy of the Los Angeles metropolitan '+
+        // 'area and California.</p>'
+        // + '</div>';
+        //
+        // var infowindow = new google.maps.InfoWindow({
+        //   content: contentString
+        // });
+        //
+        // var marker = new google.maps.Marker({
+        //   position: usc,
+        //   map: map,
+        //   title: 'University of Southern California'
+        // });
+
+        downloadUrl('xmlUrl', function(data) {
+            var xml = data.responseXML;
+            // console.log(xml);
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            // console.log(markers);
+            Array.prototype.forEach.call(markers, function(markerElem) {
+              var id = markerElem.getAttribute('id');
+              var name = markerElem.getAttribute('name');
+              var address = markerElem.getAttribute('address');
+              var type = markerElem.getAttribute('type');
+              var tit = markerElem.getAttribute('title');
+              var point = new google.maps.LatLng(
+                  parseFloat(markerElem.getAttribute('lat')),
+                  parseFloat(markerElem.getAttribute('lng')));
+
+              var infowincontent = document.createElement('div');
+              var strong = document.createElement('strong');
+              strong.textContent = name
+              infowincontent.appendChild(strong);
+              infowincontent.appendChild(document.createElement('br'));
+              infowincontent.appendChild(streetview);
+
+              var text = document.createElement('text');
+              text.textContent = address
+              infowincontent.appendChild(text);
+              var icon = customLabel[type] || {};
+              var marker = new google.maps.Marker({
+                map: map,
+                position: point,
+                label: icon.label,
+                title: tit
+              });
+
+              markersArray.push(marker);
+              // console.log(markersArray);
+              for (var i = 0; i < markersArray.length; i++) {
+                if (markersArray[i].label == 'H') {
+                  markersHotel.push(markersArray[i]);
+                  // console.log(markersHotel);
+                } else if (markersArray[i].label == 'R') {
+                  markersRestaurant.push(markersArray[i]);
+                } else if (markersArray[i].label == 'P') {
+                  markersPark.push(markersArray[i]);
+                } else {
+                  markersMuseum.push(markersArray[i]);
+                }
+              }
+
+              // infoWindow.addListener('domready', function() {
+              //   if (panorama != null) {
+              //     panorama.unbind("position");
+              //     panorama.setVisible(false);
+              //   }
+              //   panorama = new google.maps.StreetViewPanorama(document.getElementById('panorama'), {
+              //     navigationControl: true,
+              //     navigationControlOptions: { style: google.maps.NavigationControlStyle.ANDROID },
+              //     enableCloseButton: false,
+              //     addressControl: false,
+              //     linksControl: false
+              //   });
+              //   panorama.bindTo("position", marker);
+              //   panorama.setVisible(true);
+              // });
+              //
+              // infoWindow.addListener('closeclick', function() {
+              //   panorama.unbind("position");
+              //   panorama.setVisible(false);
+              //   panorama = null;
+              // });
+
+              marker.addListener('click', function() {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+                clickedMarker = marker;
+                // console.log(clickedMarker);
+                sv.getPanoramaByLocation(marker.getPosition(), 50, processSVData);
+                // var pano = null;
+                // infoWindow.addListener('domready', function () {
+                //     if (pano != null) {
+                //         pano.unbind("position");
+                //         pano.setVisible(false);
+                //       }
+                //       pano = new google.maps.StreetViewPanorama(document.getElementById("streetview"), {
+                //         navigationControl: true,
+                //         navigationControlOptions: { style: google.maps.NavigationControlStyle.ANDROID },
+                //         enableCloseButton: false,
+                //         addressControl: false,
+                //         linksControl: false
+                //       });
+                //       pano.bindTo("position", marker);
+                //       pano.setVisible(true);
+                //     });
+                //
+                //     infoWindow.addListener('closeclick', function () {
+                //       pano.unbind("position");
+                //       pano.setVisible(false);
+                //       pano = null;
+                //     });
+              });
+
+              // marker.addListener('mouseover', function() {
+              //   this.setIcon('http://maps.google.com/mapfiles/ms/icons/green.png');
+              // });
+              //
+              // marker.addListener('mouseout', function() {
+              //   this.setIcon('http://maps.google.com/mapfiles/ms/icons/red.png');
+              // });
+
+            });
+          });
+
+          var pin = new google.maps.MVCObject();
+          google.maps.event.addListenerOnce(infoWindow, "domready", function() {
+            panorama = new google.maps.StreetViewPanorama(streetview, {
+              navigationControl: false,
+              enableCloseButton: false,
+              addressControl: false,
+              linksControl: false,
+              visible: true
+            });
+            panorama.bindTo("position", pin);
+          });
+
+          document.getElementById('show-hotel-listings').addEventListener('click', showHotelListings);
+          document.getElementById('hide-hotel-listings').addEventListener('click', hideHotelListings);
+
+          document.getElementById('show-restaurant-listings').addEventListener('click', showRestaurantListings);
+          document.getElementById('hide-restaurant-listings').addEventListener('click', hideRestaurantListings);
+
+          document.getElementById('show-park-listings').addEventListener('click', showParkListings);
+          document.getElementById('hide-park-listings').addEventListener('click', hideParkListings);
+
+          document.getElementById('show-museum-listings').addEventListener('click', showMuseumListings);
+          document.getElementById('hide-museum-listings').addEventListener('click', hideMuseumListings);
+        }
+
+
+      function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
+
+        request.open('GET', 'db/new_markers.xml', true);
+        request.send(null);
+        // console.log(request)
+      }
+
+      // function processSVData(data, status) {
+      //   if (status == google.maps.StreetViewStatus.OK) {
+      //     var marker = clickedMarker;
+      //     openInfoWindow(clickedMarker);
+      //
+      //     if (!!panorama && !!panorama.setPano) {
+      //       panorama.setPano(data.location.pano);
+      //       panorama.setPov({
+      //         heading: 270,
+      //         pitch: 0,
+      //         zoom: 1
+      //       });
+      //       panorama.setVisible(true);
+      //
+      //       marker.addListener('click', function() {
+      //         var markerPanoID = data.location.pano;
+      //         // Set the Pano to use the passed panoID
+      //         panorama.setPano(markerPanoID);
+      //         panorama.setPov({
+      //           heading: 270,
+      //           pitch: 0,
+      //           zoom: 1
+      //         });
+      //         panorama.setVisible(true);
+      //       });
+      //     }
+      //   } else {
+      //     openInfoWindow(clickedMarker);
+      //     panorama.setVisible(false);
+      //     // alert("Street View data not found for this location.");
+      //   }
+      // }
+
+      // Use a 'pin' MVCObject as the order of the domready and marker click events is not garanteed.
+      // function openInfoWindow(marker) {
+      //     // pin.set("position", marker.getPosition());
+      //     infoWindow.open(map, marker);
+      //   }
+
+      
+      function processSVData(data, status) {
+        if (status == google.maps.StreetViewStatus.OK) {
+          var marker = clickedMarker;
+          openInfoWindow(clickedMarker);
+
+          if (!!panorama && !!panorama.setPano) {
+            panorama.setPano(data.location.pano);
+            panorama.setPov({
+              heading: 270,
+              pitch: 0,
+              zoom: 1
+            });
+            panorama.setVisible(true);
+
+            marker.addListener('click', function() {
+              var markerPanoID = data.location.pano;
+              // Set the Pano to use the passed panoID
+              panorama.setPano(markerPanoID);
+              panorama.setPov({
+                heading: 270,
+                pitch: 0,
+                zoom: 1
+              });
+              panorama.setVisible(true);
+            });
+          }
+        } else {
+          openInfoWindow(clickedMarker);
+          panorama.setVisible(false);
+          // alert("Street View data not found for this location.");
+        }
+      }
+
+      // Use a 'pin' MVCObject as the order of the domready and marker click events is not garanteed.
+      function openInfoWindow(marker) {
+          // pin.set("position", marker.getPosition());
+          infoWindow.open(map, marker);
+        }
+
+
+      // This function will loop through the hotels' markers array and display them all.
+      function showHotelListings() {
+        var bounds = new google.maps.LatLngBounds();
+        // Extend the boundaries of the map for each marker and display the marker
+        for (var i = 0; i < markersHotel.length; i++) {
+          markersHotel[i].setMap(map);
+          bounds.extend(markersHotel[i].position);
+        }
+        map.fitBounds(bounds);
+      }
+
+      // This function will loop through the hotel-listings and hide them all.
+      function hideHotelListings() {
+        for (var i = 0; i < markersHotel.length; i++) {
+          markersHotel[i].setMap(null);
+        }
+      }
+
+      // This function will loop through the restaurants' markers array and display them all.
+      function showRestaurantListings() {
+        var bounds = new google.maps.LatLngBounds();
+        // Extend the boundaries of the map for each marker and display the marker
+        for (var i = 0; i < markersRestaurant.length; i++) {
+          markersRestaurant[i].setMap(map);
+          bounds.extend(markersRestaurant[i].position);
+        }
+        map.fitBounds(bounds);
+      }
+
+      // This function will loop through the restaurant-listings and hide them all.
+      function hideRestaurantListings() {
+        for (var i = 0; i < markersRestaurant.length; i++) {
+          markersRestaurant[i].setMap(null);
+        }
+      }
+
+      // This function will loop through the hotels' markers array and display them all.
+      function showParkListings() {
+        var bounds = new google.maps.LatLngBounds();
+        // Extend the boundaries of the map for each marker and display the marker
+        for (var i = 0; i < markersPark.length; i++) {
+          markersPark[i].setMap(map);
+          bounds.extend(markersPark[i].position);
+        }
+        map.fitBounds(bounds);
+      }
+
+      // This function will loop through the hotel-listings and hide them all.
+      function hideParkListings() {
+        for (var i = 0; i < markersPark.length; i++) {
+          markersPark[i].setMap(null);
+        }
+      }
+
+      // This function will loop through the hotels' markers array and display them all.
+      function showMuseumListings() {
+        var bounds = new google.maps.LatLngBounds();
+        // Extend the boundaries of the map for each marker and display the marker
+        for (var i = 0; i < markersMuseum.length; i++) {
+          markersMuseum[i].setMap(map);
+          bounds.extend(markersMuseum[i].position);
+        }
+        map.fitBounds(bounds);
+      }
+
+      // This function will loop through the hotel-listings and hide them all.
+      function hideMuseumListings() {
+        for (var i = 0; i < markersMuseum.length; i++) {
+          markersMuseum[i].setMap(null);
+        }
+      }
+
+      // This function takes in a COLOR, and then creates a new marker
+      // icon of that color. The icon will be 21 px wide by 34 high, have an origin
+      // of 0, 0 and be anchored at 10, 34).
+
+      // function makeMarkerIcon(markerColor) {
+      //   var markerImage = new google.maps.MarkerImage(
+      //     'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+      //     '|40|_|%E2%80%A2',
+      //     new google.maps.Size(21, 34),
+      //     new google.maps.Point(0, 0),
+      //     new google.maps.Point(10, 34),
+      //     new google.maps.Size(21,34));
+      //   return markerImage;
+      // }
+
+      // function pinSymbol(color) {
+      //   return {
+      //     path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
+      //     fillColor: color,
+      //     fillOpacity: 1,
+      //     strokeColor: '#000',
+      //     strokeWeight: 2,
+      //     scale: 1
+      //   };
+      // }
+
+      function doNothing() {}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr5FlyIOASDyzm_lvWOE26hQfLxPFpt4E&callback=initMap">
+    </script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+  </div>
+  </body>
+</html>

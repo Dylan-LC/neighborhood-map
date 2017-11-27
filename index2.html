@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Neighborhood Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 100%;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      var usc = {lat: 34.02198651329619 ,lng: -118.2878851890564};
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: usc,
+          zoom: 13
+        });
+
+        var infoWindow = new google.maps.InfoWindow;
+
+        $.ajax({
+	         type: "GET",
+	         async: true,
+	         url: "db/markers.xml",
+	         dataType: "xml",
+	         success:
+	         function (xml) {
+             var markers = xml.documentElement.getElementsByTagName('field');
+
+             for (var i = 0; i < markers.length; i++) {
+   	           var lat = markers[i].getAttribute('lat');
+   	           var long = markers[i].getAttribute('lng');
+   	           var latLng = new google.maps.LatLng(lat, long);
+   	           var marker = new google.maps.Marker({
+   		           position:  latLng,
+   		           map: map,
+   		           label:places[i].name
+   	           });
+             }
+           }
+        });
+
+      }
+
+    </script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr5FlyIOASDyzm_lvWOE26hQfLxPFpt4E&callback=initMap">
+    </script>
+  </body>
+
+</html>

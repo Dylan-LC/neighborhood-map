@@ -13,6 +13,7 @@ let markersRestaurant = [];
 let markersPark = [];
 let markersMuseum = [];
 let places = [];
+let origins = [];
 
 let customLabel = {
   restaurant: {
@@ -31,12 +32,88 @@ let customLabel = {
 
 let usc = {lat: 34.02198651329619 ,lng: -118.2878851890564};
 function initMap() {
+  // Create a new StyledMapType object, passing it an array of styles,
+  // and the name to be displayed on the map type control.
+  let styledMapType = new google.maps.StyledMapType(
+    [{
+      featureType: 'water',
+      stylers: [
+        { color: '#19a0d8' }
+      ]
+    },{
+      featureType: 'administrative',
+      elementType: 'labels.text.stroke',
+      stylers: [
+        { color: '#ffffff' },
+        { weight: 6 }
+      ]
+    },{
+      featureType: 'administrative',
+      elementType: 'labels.text.fill',
+      stylers: [
+        { color: '#e85113' }
+      ]
+    },{
+      featureType: 'road.highway',
+      elementType: 'geometry.stroke',
+      stylers: [
+        { color: '#efe9e4' },
+        { lightness: -40 }
+      ]
+    },{
+      featureType: 'transit.station',
+      stylers: [
+        { weight: 9 },
+        { hue: '#e85113' }
+      ]
+    },{
+      featureType: 'road.highway',
+      elementType: 'labels.icon',
+      stylers: [
+        { visibility: 'off' }
+      ]
+    },{
+      featureType: 'water',
+      elementType: 'labels.text.stroke',
+      stylers: [
+        { lightness: 100 }
+      ]
+    },{
+      featureType: 'water',
+      elementType: 'labels.text.fill',
+      stylers: [
+        { lightness: -100 }
+      ]
+    },{
+      featureType: 'poi',
+      elementType: 'geometry',
+      stylers: [
+        { visibility: 'on' },
+        { color: '#f0e4d3' }
+      ]
+    },{
+      featureType: 'road.highway',
+      elementType: 'geometry.fill',
+      stylers: [
+        { color: '#efe9e4' },
+        { lightness: -25 }
+      ]
+    }
+  ], {name: 'Styled Map'});
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: usc,
     zoom: 13,
-    // mapTypeId: google.maps.MapTypeId.ROADMAP,
+    // mapTypeControl: false,
+    mapTypeControlOptions: {
+      mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map']
+    },
     streetViewControl: false
   });
+
+  //Associate the styled map with the MapTypeId and set it to display.
+  map.mapTypes.set('styled_map', styledMapType);
+  map.setMapTypeId('roadmap');
 
   let infoWindow = new google.maps.InfoWindow();
   let sv = new google.maps.StreetViewService();
@@ -443,7 +520,7 @@ function searchWithinTime() {
     // Use the distance matrix service to calculate the duration of the
     // routes between all our markers, and the destination address entered
     // by the user. Then put all the origins into an origin matrix.
-    let origins = [];
+    // let origins = [];
     for (let i = 0; i < markersArray.length; i++) {
       origins[i] = markersArray[i].position;
     }
@@ -523,10 +600,26 @@ function displayMarkersWithinTime(response) {
 // of the markers within the calculated distance. This will display the route
 // on the map.
 function displayDirections(origin) {
+  // console.log(origin); // There is a value in origin here.
   hideMarkers(markersArray);
   let directionsService = new google.maps.DirectionsService;
+  // console.log(directionsService); //{} is ok.
+  let directionsDisplay = new google.maps.DirectionsRenderer({
+    draggable: true,
+    map: map,
+  });
+  // directionsDisplay.setPanel(document.getElementById('right-panel'));
+  // console.log(directionsDisplay);
+  //
+  // let onChangeHandler = function() {
+  //   calculateAndDisplayRoute(origin, directionsService, directionsDisplay);
+  // }
+  // document.getElementById('search-within-time').addEventListener('click', onChangeHandler);
+
+
   // Get the destination address from the user entered value.
   let destinationAddress = document.getElementById('search-within-time-text').value;
+  console.log(destinationAddress);
   // Get mode again from the user entered value.
   let mode = document.getElementById('mode').value;
   directionsService.route({
@@ -537,19 +630,35 @@ function displayDirections(origin) {
     travelMode: google.maps.TravelMode[mode]
   }, function(response, status) {
     if (status === google.maps.DirectionsStatus.OK) {
-      let directionsDisplay = new google.maps.DirectionsRenderer({
-        map: map,
-        directions: response,
-        draggable: true,
-        polylineOptions: {
-          strokeColor: 'blue'
-        }
-      });
+      directionsDisplay.setDirections(response);
     } else {
       window.alert('Directions request failed due to ' + status);
     }
   });
+  directionsDisplay.setPanel(document.getElementById('right-panel'));
+  console.log(directionsDisplay);
 }
+
+
+// function calculateAndDisplayRoute(origin, directionsService, directionsDisplay) {
+//   // var start = document.getElementById('start').value;
+//   let end = document.getElementById('search-within-time-text').value;
+//   console.log(end);
+//   // Get mode again from the user entered value.
+//   let mode = document.getElementById('mode').value;
+//   directionsService.route({
+//     origin: origin,
+//     destination: end,
+//     travelMode: google.maps.TravelMode[mode]
+//   }, function(response, status) {
+//     if (status === 'OK') {
+//       directionsDisplay.setDirections(response);
+//       directionsDisplay.setDraggable(true);
+//     } else {
+//       window.alert('Directions request failed due to ' + status);
+//     }
+//   });
+// }
 
 
 // This function fires when the user selects a searchbox picklist item.

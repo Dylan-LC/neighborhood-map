@@ -26,9 +26,6 @@ span {
   text-align: left;
 }
 
-/*#hide-listings, #show-listings {
-  width: 48%;
-}*/
 
 #show-hotel-listings, #hide-hotel-listings,
 #show-restaurant-listings, #hide-restaurant-listings,
@@ -65,7 +62,7 @@ span {
 .floating-panel {
   position: absolute;
   top: 10px;
-  left: 45%;
+  left: 47%;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
@@ -74,4 +71,43 @@ span {
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
   padding-left: 10px;
+}
+
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+#right-panel {
+  height: 100%;
+  float: right;
+  width: 390px;
+  overflow: auto;
+}
+
+#map {
+  margin-right: 400px;
+}
+
+@media print {
+  #map {
+    height: 500px;
+    margin: 0;
+  }
+  #right-panel {
+    float: none;
+    width: auto;
+  }
 }
